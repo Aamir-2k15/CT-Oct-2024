@@ -1,0 +1,21 @@
+/* * * * * * * * * *
+Theme Name: CT-2024
+Theme URI: 
+Author: Anonymous
+Author URI: 
+Description: A Simple theme to run This Website. 
+Text Domain: CT
+Version: 1
+Version Date: 05 Oct, 2024
+* * * * * * * * * */
+
+
+
+.meta-info label {
+    display: none;
+}
+
+.CT-social-links ul li {
+    float: left;
+    margin: 0 5px;
+}

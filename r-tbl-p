@@ -1,0 +1,24 @@
+-- Rename all tables
+RENAME TABLE `wp_commentmeta` TO `RSD_2024_commentmeta`;
+RENAME TABLE `wp_comments` TO `RSD_2024_comments`;
+RENAME TABLE `wp_links` TO `RSD_2024_links`;
+RENAME TABLE `wp_options` TO `RSD_2024_options`;
+RENAME TABLE `wp_postmeta` TO `RSD_2024_postmeta`;
+RENAME TABLE `wp_posts` TO `RSD_2024_posts`;
+RENAME TABLE `wp_terms` TO `RSD_2024_terms`;
+RENAME TABLE `wp_termmeta` TO `RSD_2024_termmeta`;
+RENAME TABLE `wp_term_relationships` TO `RSD_2024_term_relationships`;
+RENAME TABLE `wp_term_taxonomy` TO `RSD_2024_term_taxonomy`;
+RENAME TABLE `wp_usermeta` TO `RSD_2024_usermeta`;
+RENAME TABLE `wp_users` TO `RSD_2024_users`;
+RENAME TABLE `wp_e_events` TO `RSD_2024_e_events`;
+
+-- Update the wp_options table entries
+UPDATE `RSD_2024_options` 
+SET `option_name` = REPLACE(`option_name`, 'wp_', 'RSD_2024_') 
+WHERE `option_name` LIKE 'wp_%';
+
+-- Update the wp_usermeta table entries
+UPDATE `RSD_2024_usermeta` 
+SET `meta_key` = REPLACE(`meta_key`, 'wp_', 'RSD_2024_') 
+WHERE `meta_key` LIKE 'wp_%';
