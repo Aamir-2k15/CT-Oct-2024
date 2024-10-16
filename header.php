@@ -31,14 +31,18 @@
                     </div>
                 </div>
             </div>
-
+<?php // ?>
             <nav class="navbar navbar-expand-lg ">
+              
                 <div class="container">
                     <a href="<?= site_url(); ?>" class="navbar-brand">
-                        <img src="<?php echo isset(CT_SETTINGS['site_logo'])?CT_SETTINGS['site_logo']:''; ?>"
-                            alt="<?php bloginfo('name'); ?>" class="img-fluid logo" 
-                            width="<?php echo isset(CT_SETTINGS['logo-width'])?CT_SETTINGS['logo-width']:'30'; ?>" 
-                            height="<?php echo isset(CT_SETTINGS['logo-height'])?CT_SETTINGS['logo-height']:'30'; ?>"/>
+                        <img 
+                            src="<?php echo isset(CT_SETTINGS['site_logo'])?CT_SETTINGS['site_logo']:''; ?>"
+                            alt="<?php echo image_meta_by_src(CT_SETTINGS['site_logo'])['alt']; ?>" class="img-fluid logo" 
+                            width="<?php echo isset(CT_SETTINGS['logo-width'])?CT_SETTINGS['logo-width']:'64'; ?>" 
+                            height="<?php echo isset(CT_SETTINGS['logo-height'])?CT_SETTINGS['logo-height']:'auto'; ?>"
+                            title="<?php echo image_meta_by_src(CT_SETTINGS['site_logo'])['title']; ?>"
+                            />
                     </a>
                     <button class="navbar-toggler navbar-toggler-right border" type="button" data-toggle="collapse"
                         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
