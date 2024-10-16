@@ -81,3 +81,45 @@ function _CT_author_info()
     $author_url = get_author_posts_url($author_id);
     echo '<a class="the_author" href="' . esc_url($author_url) . '">' . esc_html($author_name) . '</a>';
 }
+
+
+/* IMAGE META FUNCTION */
+function image_meta_by_src($src) {
+    if ($src) {
+        // Convert the image src to attachment ID
+        $image_id = attachment_url_to_postid($src);
+
+        if ($image_id) {
+            // Get image alt
+            $alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+
+            // Get image title
+            $image_post = get_post($image_id);
+            $image_title = $image_post->post_title;
+
+            // Get image caption
+            $image_caption = $image_post->post_excerpt;
+
+            // Get image description
+            $image_description = $image_post->post_content;
+
+            // Prepare the data to return
+            $data = [
+                'alt'        => $alt_text,
+                'title'      => $image_title,
+                'caption'    => $image_caption,
+                'description' => $image_description
+            ];
+
+            return $data; // Return the metadata array
+        }
+    }
+    
+    // Return an empty array if the image meta cannot be retrieved
+    return [
+        'alt'        => '',
+        'title'      => '',
+        'caption'    => '',
+        'description' => ''
+    ];
+}
